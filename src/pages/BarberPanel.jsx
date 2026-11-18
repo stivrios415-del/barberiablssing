@@ -286,7 +286,7 @@ export default function BarberPanel({ user }) {
     <>
       <GlobalStyles />
       <video autoPlay loop muted playsInline className="video-bg">
-        <source src="/img/clipq.mp4" type="video/mp4" />
+        <source src="/img/clip1.mp4" type="video/mp4" />
       </video>
       <div className="video-overlay" />
 
