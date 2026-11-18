@@ -39,7 +39,7 @@ export default function LoyaltyCard({ user }) {
       
       {/* Video de Fondo */}
       <video autoPlay loop muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -2 }}>
-        <source src="/img/clipq.mp4" type="video/mp4" />
+        <source src="/img/clip1.mp4" type="video/mp4" />
       </video>
       <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'linear-gradient(rgba(10, 10, 12, 0.78), rgba(10, 10, 12, 0.88))', zIndex: -1 }} />
 
