@@ -5,7 +5,7 @@ import { auth, db } from '../firebase';
 
 const SYSTEM_CONFIG = {
   TOTAL_STAMPS: 5,
-  ADMIN_EMAIL: 'atakirumba99@gmail.com', 
+  ADMIN_EMAIL: 'tatakirumba99@gmail.com', 
   BRAND_NAME: "BLESSING'S"
 };
 
