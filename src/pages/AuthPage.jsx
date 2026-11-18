@@ -49,22 +49,25 @@ export default function AuthPage() {
   };
 
   const glassInput = {
-    width: '100%', padding: '13px 16px', background: 'rgba(0, 0, 0, 0.3)', 
-    border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '12px', 
+    width: '100%', padding: '13px 16px', background: 'rgba(0, 0, 0, 0.35)', 
+    border: '1px solid rgba(212, 175, 55, 0.25)', borderRadius: '12px', 
     color: '#fff', fontSize: '14px', outline: 'none', transition: 'all 0.3s'
   };
 
   return (
-    <div style={{ 
-      minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px',
-      backgroundColor: '#0a0a0c',
-      backgroundImage: "linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.9)), url('/img/fondo.jpeg')",
-      backgroundSize: 'cover', backgroundPosition: 'center'
-    }}>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', position: 'relative', overflow: 'hidden' }}>
+      
+      {/* Video de Fondo */}
+      <video autoPlay loop muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -2 }}>
+        <source src="/img/clipq.mp4" type="video/mp4" />
+      </video>
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'linear-gradient(rgba(10, 10, 12, 0.78), rgba(10, 10, 12, 0.88))', zIndex: -1 }} />
+
+      {/* Contenedor Glass */}
       <div style={{ 
         width: '100%', maxWidth: '380px', background: 'rgba(18, 18, 24, 0.65)', backdropFilter: 'blur(20px)', 
-        WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '24px', padding: '36px 28px',
-        boxShadow: '0 30px 60px rgba(0,0,0,0.5)'
+        WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(212, 175, 55, 0.25)', borderRadius: '24px', padding: '36px 28px',
+        boxShadow: '0 30px 60px rgba(0,0,0,0.5)', zIndex: 1
       }}>
         
         <div style={{ textAlign: 'center', marginBottom: '25px' }}>
@@ -83,12 +86,12 @@ export default function AuthPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {mode === 'register' && (
             <input type="text" placeholder="Nombre Completo" value={name} onChange={e => setName(e.target.value)} style={glassInput} 
-              onFocus={(e) => e.target.style.borderColor = '#d4af37'} onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.2)'} />
+              onFocus={(e) => e.target.style.borderColor = '#d4af37'} onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.25)'} />
           )}
           <input type="email" placeholder="Correo Electrónico" value={email} onChange={e => setEmail(e.target.value)} style={glassInput} 
-            onFocus={(e) => e.target.style.borderColor = '#d4af37'} onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.2)'} />
+            onFocus={(e) => e.target.style.borderColor = '#d4af37'} onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.25)'} />
           <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} style={glassInput} 
-            onFocus={(e) => e.target.style.borderColor = '#d4af37'} onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.2)'} />
+            onFocus={(e) => e.target.style.borderColor = '#d4af37'} onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.25)'} />
           
           <button onClick={handleSubmit} disabled={loading} style={{ 
             marginTop: '8px', padding: '14px', background: 'linear-gradient(135deg, #d4af37, #aa7c11)', color: '#0a0a0c', 
