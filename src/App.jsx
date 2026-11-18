@@ -10,7 +10,7 @@ import BarberPanel from './pages/BarberPanel';
 import VoucherPage from './pages/VoucherPage'; // <-- 1. Importar aquí
 
 export const BLESSINGS_CONFIG = {
-  ADMIN_EMAIL: 'tatakirumba99@gmail.com', // Revisa si lleva 't' al inicio como en BarberPanel
+  ADMIN_EMAIL: 'atakirumba99@gmail.com', // Revisa si lleva 't' al inicio como en BarberPanel
   BRAND_NAME: "BLESSING'S"
 };
 
