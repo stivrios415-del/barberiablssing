@@ -10,6 +10,7 @@ export default function LoyaltyCard({ user }) {
   const [clientData, setClientData] = useState(null);
   const [showQR, setShowQR] = useState(false);
   const [dbLoading, setDbLoading] = useState(true);
+  const [justUsed, setJustUsed] = useState(false);
   const prevToken = useRef(null);
 
   useEffect(() => {
@@ -34,17 +35,20 @@ export default function LoyaltyCard({ user }) {
   if (dbLoading) return <div style={{ color: '#d4af37', textAlign: 'center', marginTop: '20vh', background: '#0a0a0c' }}>Cargando...</div>;
 
   return (
-    <div style={{ 
-      minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px',
-      backgroundColor: '#0a0a0c',
-      backgroundImage: "linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.9)), url('/img/fondo.jpeg')",
-      backgroundSize: 'cover', backgroundPosition: 'center'
-    }}>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', position: 'relative', overflow: 'hidden' }}>
+      
+      {/* Video de Fondo */}
+      <video autoPlay loop muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -2 }}>
+        <source src="/img/clipq.mp4" type="video/mp4" />
+      </video>
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'linear-gradient(rgba(10, 10, 12, 0.78), rgba(10, 10, 12, 0.88))', zIndex: -1 }} />
+
+      {/* Tarjeta Glass */}
       <div style={{ 
         width: '100%', maxWidth: '380px', 
         background: 'rgba(18, 18, 24, 0.65)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-        border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '28px', padding: '36px 28px',
-        boxShadow: '0 30px 60px rgba(0,0,0,0.5)'
+        border: '1px solid rgba(212, 175, 55, 0.25)', borderRadius: '28px', padding: '36px 28px',
+        boxShadow: '0 30px 60px rgba(0,0,0,0.5)', zIndex: 1
       }}>
         
         <div style={{ textAlign: 'center', marginBottom: '25px' }}>
@@ -53,13 +57,13 @@ export default function LoyaltyCard({ user }) {
           <p style={{ color: '#a1a1aa', fontSize: '12px', marginTop: '4px' }}>Tarjeta de Fidelización</p>
         </div>
 
-        <div style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '18px', padding: '20px', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
+        <div style={{ background: 'rgba(0,0,0,0.35)', borderRadius: '18px', padding: '20px', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
             <div>
               <div style={{ fontWeight: 600, color: '#fcfcfc', fontSize: '15px' }}>{user.displayName || 'Cliente'}</div>
               <div style={{ fontSize: '11px', color: '#a1a1aa' }}>{user.email}</div>
             </div>
-            <button onClick={() => signOut(auth)} style={{ background: 'transparent', border: '1px solid rgba(212, 175, 55, 0.2)', color: '#a1a1aa', padding: '5px 10px', borderRadius: '8px', fontSize: '11px', cursor: 'pointer' }}>Salir</button>
+            <button onClick={() => signOut(auth)} style={{ background: 'transparent', border: '1px solid rgba(212, 175, 55, 0.25)', color: '#a1a1aa', padding: '5px 10px', borderRadius: '8px', fontSize: '11px', cursor: 'pointer' }}>Salir</button>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '16px' }}>
