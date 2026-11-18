@@ -183,7 +183,7 @@ export default function LandingPage({ user }) {
             onClick={() => navigate(user ? (user.email === 'tatakirumba99@gmail.com' ? '/admin' : '/mi-tarjeta') : '/login')}
             style={{ background: 'rgba(200,169,110,0.15)', color: '#C8A96E', border: '1px solid #C8A96E', padding: '0.5rem 1rem', borderRadius: '9999px', cursor: 'pointer', marginRight: '10px' }}
           >
-            {user ? 'Mi Perfil' : 'Mi Tarjeta'}
+            {user ? 'Mi Perfil' : 'FIDELIZACION CLIENTES'}
           </button>
 
           <a className="btn-book" href="https://wa.me/50497592085?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Blessing's%20Barbershop" target="_blank" rel="noopener noreferrer">
