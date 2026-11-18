@@ -33,19 +33,35 @@ const GlobalStyles = () => (
 
     body { 
       background-color: var(--bg-base); 
-      background-image: linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.92)), url('/img/fondo.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       color: var(--text-main); 
       font-family: var(--font-body); 
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
+    /* VIDEO BACKGROUND */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(10, 10, 12, 0.82), rgba(10, 10, 12, 0.90));
+      z-index: -1;
+    }
+
     /* HEADER GLASS */
     .admin-header { 
-      background: rgba(10, 10, 12, 0.8); 
+      background: rgba(10, 10, 12, 0.75); 
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--glass-border); 
       padding: 16px 28px; 
@@ -269,9 +285,14 @@ export default function BarberPanel({ user }) {
   return (
     <>
       <GlobalStyles />
+      <video autoPlay loop muted playsInline className="video-bg">
+        <source src="/img/clipq.mp4" type="video/mp4" />
+      </video>
+      <div className="video-overlay" />
+
       {toast && <div className="toast">{toast}</div>}
 
-      <div style={{ paddingBottom: '60px' }}>
+      <div style={{ paddingBottom: '60px', position: 'relative', zIndex: 1 }}>
         <div className="admin-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <img src="/img/logo.jpeg" alt="Logo" style={{ width: 40, height: 40, borderRadius: '10px', objectFit: 'cover', border: '1px solid rgba(212,175,55,0.4)' }} />
