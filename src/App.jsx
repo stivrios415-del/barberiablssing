@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 
-// Importación de páginas (las crearemos a continuación)
 import LandingPage from './pages/LandingPage';
 import AuthPage from './pages/AuthPage';
 import LoyaltyCard from './pages/LoyaltyCard';
 import BarberPanel from './pages/BarberPanel';
+import VoucherPage from './pages/VoucherPage'; // <-- 1. Importar aquí
 
 export const BLESSINGS_CONFIG = {
-  ADMIN_EMAIL: 'atakirumba99@gmail.com', // Asegúrate de usar el correo real del admin
+  ADMIN_EMAIL: 'tatakirumba99@gmail.com', // Revisa si lleva 't' al inicio como en BarberPanel
   BRAND_NAME: "BLESSING'S"
 };
 
@@ -31,13 +31,12 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Ruta Pública Principal */}
         <Route path="/" element={<LandingPage user={user} />} />
-        
-        {/* Ruta de Login / Registro */}
         <Route path="/login" element={user ? <Navigate to="/mi-tarjeta" /> : <AuthPage />} />
+        
+        {/* 2. Agregar la ruta del QR aquí */}
+        <Route path="/voucher" element={<VoucherPage user={user} />} />
 
-        {/* Rutas Protegidas */}
         <Route 
           path="/mi-tarjeta" 
           element={
